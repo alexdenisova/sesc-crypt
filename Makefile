@@ -1,7 +1,7 @@
-run: crypt
-	./crypt
+run: prog
+	./prog
 
-crypt: crypt.c
-	gcc -Wall -std=c11 crypt.c -o crypt
+prog: prog.c
+	gcc -Wall -std=c11 prog.c -o prog -lcrypt
 
-build: crypt
+build: prog
