@@ -16,7 +16,7 @@ void checkPassword()
     scanf("%ms",&hash);
     
     //crypt password
-    char *cryptPassword = crypt(password, $4r$);
+    char *cryptPassword = crypt(password, "$4r$");
     if(cryptPassword != NULL) {
         if(strcmp(cryptPassword, hash) == 0) {
             printf("allow");
