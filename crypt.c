@@ -11,21 +11,17 @@ void checkPassword()
 {
     char *password = NULL;
     char *hash = NULL;
-   
-    printf("Enter a password: \n");
-    scanf("%ms",&password);  
     
-    printf("Enter a hash: \n");
-    scanf("%ms",&hash); 
+    scanf("%ms",&password);
+    scanf("%ms",&hash);
     
     //crypt password
     char *cryptPassword = crypt(password, "salt");
     if(cryptPassword != NULL) {
-        if(strcmp(cryptPassword, hash) == 0) 
-        {
-            printf("Allow");
+        if(strcmp(cryptPassword, hash) == 0) {
+            printf("allow");
         } else {
-            printf("Deny");
+            printf("deny");
         }
         free(password);
         free(hash);
