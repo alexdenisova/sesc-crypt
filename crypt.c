@@ -5,38 +5,32 @@
 #include <crypt.h>
 #include <setjmp.h>
 
-jmp_buf  env;
 
 void checkPassword()
 {
     char *password = NULL;
     char *hash = NULL;
-    
-    scanf("%ms",&password);
-    scanf("%ms",&hash);
+
+    scanf("%ms",&password);  
+    scanf("%ms",&hash); 
     
     //crypt password
-    char *cryptPassword = crypt(password, "00");
+    char *cryptPassword = crypt(password, "4r");
     if(cryptPassword != NULL) {
         if(strcmp(cryptPassword, hash) == 0) {
-            printf("allow");
+            printf("allow\n");
         } else {
-            printf("deny");
+            printf("deny\n");
         }
         free(password);
         free(hash);
     } else {
-        longjmp (env, 42);
+      printf("Error\n");
     }
 }
 
-int main()
-{
-    if(setjmp (env)) {
-       printf("Error");
-    } else {
+int main(){
        checkPassword();
     }
-   
-    return 256;
+    return 0;
 }
