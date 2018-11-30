@@ -6,8 +6,7 @@
 #include <setjmp.h>
 
 
-void checkPassword()
-{
+void checkPassword() {
     char *password = NULL;
     char *hash = NULL;
 
@@ -30,7 +29,6 @@ void checkPassword()
 }
 
 int main(){
-       checkPassword();
-    }
+    checkPassword();
     return 0;
 }
